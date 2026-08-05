@@ -27,13 +27,13 @@ const fieldClass =
   "mt-2 h-12 w-full rounded-lg border border-input bg-card px-4 text-base outline-none transition-shadow focus:border-accent focus:shadow-[0_0_0_4px_color-mix(in_oklab,var(--color-accent)_25%,transparent)]";
 
 function ApplyPage() {
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
   const [sent, setSent] = useState(false);
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const next: Record<string, string> = {};
+    const next: { name?: string; email?: string } = {};
     if (!String(data.get("name") ?? "").trim()) next.name = "Please enter your full name.";
     const email = String(data.get("email") ?? "").trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Instagram } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
-import { INSTAGRAM_URL } from "@/components/site/SiteFooter";
+import { INSTAGRAM_URL } from "@/components/site/links";
 
 const title = "Contact Nova Knights Robotics";
 const description =

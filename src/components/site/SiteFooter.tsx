@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram } from "lucide-react";
 import { LogoMark } from "./Logo";
+import { INSTAGRAM_URL } from "./links";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -11,7 +12,7 @@ const navLinks = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export const INSTAGRAM_URL = "https://www.instagram.com/novaknights32326/";
+
 
 export function SiteFooter() {
   return (

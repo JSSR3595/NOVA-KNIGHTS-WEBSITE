@@ -1,7 +1,7 @@
 import { Instagram, ArrowRight } from "lucide-react";
 import { Cta } from "./Cta";
 import { Reveal } from "./Reveal";
-import { INSTAGRAM_URL } from "./SiteFooter";
+import { INSTAGRAM_URL } from "./links";
 
 export function SupportCallout() {
   return (

@@ -1,24 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { Hero } from "@/components/site/Hero";
+import { StatsStrip } from "@/components/site/StatsStrip";
+import { MissionSection } from "@/components/site/MissionSection";
+import { SupportCallout } from "@/components/site/SupportCallout";
+import { PartnersStrip } from "@/components/site/PartnersStrip";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Nova Circuit Robotics — Youth STEM Competition Team";
+const description =
+  "Nova Circuit Robotics is a student-led nonprofit robotics team. Free year-round build seasons, mentoring, and community STEM outreach for middle and high school students.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Nova Circuit Robotics",
+          description,
+          url: "/",
+          email: "hello@novacircuit.example",
+          telephone: "+1-555-014-2200",
+          sameAs: [
+            "https://example.com/novacircuit",
+            "https://example.com/novacircuit-youtube",
+          ],
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <SiteLayout>
+      <Hero />
+      <StatsStrip />
+      <MissionSection />
+      <SupportCallout />
+      <PartnersStrip />
+    </SiteLayout>
   );
 }

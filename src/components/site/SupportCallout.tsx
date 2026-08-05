@@ -1,30 +1,29 @@
-import { Link } from "@tanstack/react-router";
-import { HeartHandshake, ArrowRight } from "lucide-react";
+import { Instagram, ArrowRight } from "lucide-react";
 import { Cta } from "./Cta";
 import { Reveal } from "./Reveal";
+import { INSTAGRAM_URL } from "./SiteFooter";
 
 export function SupportCallout() {
   return (
-    <section className="container-page pb-4" aria-labelledby="support-heading">
+    <section className="container-page pb-16 md:pb-24" aria-labelledby="support-heading">
       <Reveal>
         <div className="bg-gradient-brand relative overflow-hidden rounded-3xl px-6 py-14 text-center text-primary-foreground shadow-card-hover md:px-16 md:py-20">
-          <HeartHandshake
+          <Instagram
             strokeWidth={1.5}
             aria-hidden="true"
             className="mx-auto size-12 text-accent"
           />
           <h2 id="support-heading" className="h-section mt-6 text-balance">
-            Keep the workshop lights on
+            Follow the season on Instagram
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/85">
-            Parts, travel, and registration run about $640 per student each season. Every
-            gift goes directly to the bench — we have no paid staff.
+            Build updates, competition days, and team news are posted to our page.
           </p>
           <Cta asChild variant="onDark" size="lg" className="mt-9 rounded-full">
-            <Link to="/apply">
-              Support the team
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+              @novaknights32326
               <ArrowRight strokeWidth={1.75} aria-hidden="true" />
-            </Link>
+            </a>
           </Cta>
         </div>
       </Reveal>

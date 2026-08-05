@@ -1,4 +1,4 @@
-/** Original brand mark: a hexagonal circuit node with an orbiting spark. */
+/** Original brand mark: a shield/knight chevron over a circuit trace. */
 export function LogoMark({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -9,24 +9,20 @@ export function LogoMark({ className = "" }: { className?: string }) {
       fill="none"
     >
       <defs>
-        <linearGradient id="nc-logo-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#3730A3" />
-          <stop offset="100%" stopColor="#6D28D9" />
+        <linearGradient id="nk-logo-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#7B1E28" />
+          <stop offset="100%" stopColor="#5A121B" />
         </linearGradient>
       </defs>
+      <path d="M16 2.5 27 6.5v11c0 6.2-4.6 10.6-11 12.5C9.6 28.1 5 23.7 5 17.5v-11z" fill="url(#nk-logo-grad)" />
       <path
-        d="M16 2.5 27 9v14L16 29.5 5 23V9z"
-        fill="url(#nc-logo-grad)"
-        rx="2"
-      />
-      <path
-        d="M11 16h4l2-3.5 2 7 2-3.5h2"
+        d="M11 17h3.2l1.8-4 2 8 1.8-4H23"
         stroke="#FAFAF9"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="25.5" cy="6.5" r="3" fill="#F59E0B" />
+      <circle cx="16" cy="8" r="2.2" fill="#FFA524" />
     </svg>
   );
 }
@@ -34,7 +30,7 @@ export function LogoMark({ className = "" }: { className?: string }) {
 export function Wordmark() {
   return (
     <span className="font-display text-[1.0625rem] leading-tight font-bold tracking-tight">
-      Nova Circuit
+      Nova Knights
       <span className="block text-[0.6875rem] font-medium tracking-[0.16em] text-muted-foreground uppercase">
         Robotics
       </span>

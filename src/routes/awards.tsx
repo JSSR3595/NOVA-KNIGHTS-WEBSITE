@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Trophy, Medal } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 
-const title = "Awards & Season Results | Nova Circuit Robotics";
+const title = "Awards & Results — Nova Knights Robotics";
 const description =
-  "Twelve seasons of Nova Circuit Robotics results — regional awards for design, control systems, safety, and community outreach.";
+  "Nova Knights results: qualified for the Chesapeake Championship and ranked in the top 10% of the Chesapeake region.";
 
 export const Route = createFileRoute("/awards")({
   head: () => ({
@@ -21,35 +22,37 @@ export const Route = createFileRoute("/awards")({
   component: AwardsPage,
 });
 
-const awards = [
-  { year: "2026", name: "Regional Excellence in Design", note: "Swerve drivetrain and modular intake" },
-  { year: "2025", name: "Control Systems Award", note: "Vision-assisted scoring alignment" },
-  { year: "2025", name: "Community Impact Award", note: "1,100 outreach hours logged" },
-  { year: "2024", name: "Safety Culture Citation", note: "Student-run shop certification program" },
-  { year: "2023", name: "Rookie Mentor Award", note: "Supported two first-year teams" },
-  { year: "2022", name: "Judges' Innovation Award", note: "Open-sourced season notebook" },
+const results = [
+  {
+    Icon: Trophy,
+    title: "Chesapeake Championship qualifier",
+    body: "The team earned a spot at the Chesapeake Championship.",
+  },
+  {
+    Icon: Medal,
+    title: "Top 10% of the Chesapeake region",
+    body: "Nova Knights currently ranks in the top 10% of the Chesapeake region.",
+  },
 ];
 
 function AwardsPage() {
   return (
     <PageShell
-      eyebrow="Recognition"
-      title="Twenty-six awards, and the notebooks behind them"
-      intro="We care more about the write-ups than the trophies — every award below links back to a public design notebook entry from that season."
+      eyebrow="Results"
+      title="Where the team stands"
+      intro="Only confirmed results are listed here. Send us any additional awards and we'll add them."
     >
-      <ul className="grid gap-4">
-        {awards.map((a) => (
+      <ul className="grid gap-4 sm:grid-cols-2">
+        {results.map(({ Icon, title: t, body }) => (
           <li
-            key={`${a.year}-${a.name}`}
-            className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-5 rounded-2xl border border-border bg-card p-6 shadow-card transition-all duration-200 ease-out hover:shadow-card-hover"
+            key={t}
+            className="rounded-2xl border border-border bg-card p-7 shadow-card transition-all duration-200 ease-out hover:shadow-card-hover"
           >
-            <span className="font-display grid size-14 shrink-0 place-items-center rounded-xl bg-secondary text-sm font-bold text-primary">
-              {a.year}
+            <span className="grid size-12 place-items-center rounded-xl bg-secondary text-primary">
+              <Icon strokeWidth={1.75} className="size-6" aria-hidden="true" />
             </span>
-            <div className="min-w-0">
-              <h2 className="font-display text-lg font-semibold">{a.name}</h2>
-              <p className="text-sm text-muted-foreground">{a.note}</p>
-            </div>
+            <h2 className="font-display mt-5 text-lg font-semibold">{t}</h2>
+            <p className="mt-2 text-muted-foreground">{body}</p>
           </li>
         ))}
       </ul>

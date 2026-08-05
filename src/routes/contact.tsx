@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
+import { INSTAGRAM_URL } from "@/components/site/SiteFooter";
 
-const title = "Contact Nova Circuit Robotics — Workshop & Team Info";
+const title = "Contact Nova Knights Robotics";
 const description =
-  "Reach the Nova Circuit Robotics team: workshop hours, email, phone, and directions for students, mentors, sponsors, and press.";
+  "Contact Nova Knights, a youth robotics competition team in the Chesapeake Bay region, through our Instagram page.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -26,40 +27,23 @@ function ContactPage() {
   return (
     <PageShell
       eyebrow="Contact"
-      title="Come by the workshop"
-      intro="We build Tuesday and Thursday evenings and Saturday mornings during the season. Visitors are welcome — email ahead so a student lead can meet you at the door."
+      title="Get in touch"
+      intro="Instagram is our only published contact channel right now. Send us an email address or phone number and we'll add it here."
     >
-      <div className="grid gap-6 sm:grid-cols-3">
-        <article className="rounded-2xl border border-border bg-card p-7 shadow-card">
-          <Mail strokeWidth={1.75} className="size-6 text-primary" aria-hidden="true" />
-          <h2 className="font-display mt-4 text-lg font-semibold">Email</h2>
-          <address className="mt-2 text-muted-foreground not-italic">
-            <a className="hover:text-primary" href="mailto:hello@novacircuit.example">
-              hello@novacircuit.example
-            </a>
-          </address>
-        </article>
-
-        <article className="rounded-2xl border border-border bg-card p-7 shadow-card">
-          <Phone strokeWidth={1.75} className="size-6 text-primary" aria-hidden="true" />
-          <h2 className="font-display mt-4 text-lg font-semibold">Phone</h2>
-          <address className="mt-2 text-muted-foreground not-italic">
-            <a className="hover:text-primary" href="tel:+15550142200">
-              (555) 014-2200
-            </a>
-          </address>
-        </article>
-
-        <article className="rounded-2xl border border-border bg-card p-7 shadow-card">
-          <MapPin strokeWidth={1.75} className="size-6 text-primary" aria-hidden="true" />
-          <h2 className="font-display mt-4 text-lg font-semibold">Workshop</h2>
-          <address className="mt-2 text-muted-foreground not-italic">
-            412 Ninth Street, Bay C
-            <br />
-            Fairgrove
-          </address>
-        </article>
-      </div>
+      <article className="max-w-md rounded-2xl border border-border bg-card p-7 shadow-card">
+        <Instagram strokeWidth={1.75} className="size-6 text-primary" aria-hidden="true" />
+        <h2 className="font-display mt-4 text-lg font-semibold">Instagram</h2>
+        <p className="mt-2">
+          <a
+            className="text-muted-foreground underline-offset-4 hover:text-primary hover:underline"
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            @novaknights32326
+          </a>
+        </p>
+      </article>
     </PageShell>
   );
 }

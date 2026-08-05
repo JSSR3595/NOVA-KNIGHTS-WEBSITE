@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — Nova Circuit Robotics
- * Palette: Deep Indigo / Warm Amber / Off-white / Slate
+ * Design system — Nova Knights Robotics
+ * Palette: Maroon / Mango Pulp Orange / Off-white
  * All colors defined as oklch tokens and mapped to Tailwind utilities.
  */
 
@@ -69,29 +69,29 @@
   --popover: oklch(1 0 0);
   --popover-foreground: var(--foreground);
 
-  /* #3730A3 */
-  --primary: oklch(0.372 0.166 285.1);
+  /* Maroon #7B1E28 */
+  --primary: oklch(0.398 0.126 22.5);
   --primary-foreground: oklch(0.99 0 0);
-  /* #6D28D9 */
-  --primary-violet: oklch(0.472 0.235 296.4);
+  /* Deep maroon #5A121B */
+  --primary-violet: oklch(0.315 0.107 21.5);
 
-  /* #F59E0B */
-  --accent: oklch(0.769 0.163 70.08);
-  --accent-foreground: oklch(0.255 0.05 70);
+  /* Mango pulp #FFA524 */
+  --accent: oklch(0.785 0.157 66);
+  --accent-foreground: oklch(0.26 0.06 45);
 
-  --secondary: oklch(0.962 0.006 264);
+  --secondary: oklch(0.962 0.012 40);
   --secondary-foreground: var(--primary);
 
-  --muted: oklch(0.968 0.004 264);
+  --muted: oklch(0.968 0.008 50);
   /* #6B7280 */
   --muted-foreground: oklch(0.551 0.027 264.36);
 
-  /* #10B981 */
+  /* Emerald accent */
   --success: oklch(0.696 0.149 162.48);
   --success-foreground: oklch(0.99 0 0);
 
-  /* #111827 */
-  --slate-section: oklch(0.208 0.032 264.67);
+  /* Deep maroon-black section background */
+  --slate-section: oklch(0.205 0.055 22);
   --slate-section-foreground: oklch(0.98 0.002 247);
 
   --destructive: oklch(0.577 0.245 27.325);

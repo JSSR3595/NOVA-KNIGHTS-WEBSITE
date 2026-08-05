@@ -4,11 +4,10 @@ import { Hero } from "@/components/site/Hero";
 import { StatsStrip } from "@/components/site/StatsStrip";
 import { MissionSection } from "@/components/site/MissionSection";
 import { SupportCallout } from "@/components/site/SupportCallout";
-import { PartnersStrip } from "@/components/site/PartnersStrip";
 
-const title = "Nova Circuit Robotics — Youth STEM Competition Team";
+const title = "Nova Knights — Chesapeake Bay Region Robotics Team";
 const description =
-  "Nova Circuit Robotics is a student-led nonprofit robotics team. Free year-round build seasons, mentoring, and community STEM outreach for middle and high school students.";
+  "Nova Knights is a youth robotics competition team founded in 2024 in the Chesapeake Bay region, a Chesapeake Championship qualifier ranked in the top 10% of the region.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,15 +27,11 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Nova Circuit Robotics",
+          name: "Nova Knights",
           description,
+          foundingDate: "2024",
           url: "/",
-          email: "hello@novacircuit.example",
-          telephone: "+1-555-014-2200",
-          sameAs: [
-            "https://example.com/novacircuit",
-            "https://example.com/novacircuit-youtube",
-          ],
+          sameAs: ["https://www.instagram.com/novaknights32326/"],
         }),
       },
     ],
@@ -51,7 +46,6 @@ function Index() {
       <StatsStrip />
       <MissionSection />
       <SupportCallout />
-      <PartnersStrip />
     </SiteLayout>
   );
 }

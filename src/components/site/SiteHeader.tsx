@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Instagram } from "lucide-react";
 import { Cta } from "./Cta";
 import { LogoMark, Wordmark } from "./Logo";
 import { cn } from "@/lib/utils";
@@ -69,7 +69,7 @@ export function SiteHeader() {
       )}
     >
       <div className="container-page flex h-20 items-center justify-between gap-6">
-        <Link to="/" className="flex items-center gap-3" aria-label="Nova Circuit Robotics home">
+        <Link to="/" className="flex items-center gap-3" aria-label="Nova Knights home">
           <LogoMark className="size-9 shrink-0" />
           <Wordmark />
         </Link>
@@ -89,8 +89,8 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Cta asChild size="sm" className="hidden rounded-full sm:inline-flex">
             <Link to="/apply">
-              <Heart strokeWidth={1.75} aria-hidden="true" />
-              Donate
+              <Instagram strokeWidth={1.75} aria-hidden="true" />
+              Get involved
             </Link>
           </Cta>
 
@@ -165,8 +165,8 @@ export function SiteHeader() {
 
           <Cta asChild className="mt-8 w-full rounded-full">
             <Link to="/apply" onClick={() => setOpen(false)}>
-              <Heart strokeWidth={1.75} aria-hidden="true" />
-              Donate
+              <Instagram strokeWidth={1.75} aria-hidden="true" />
+              Get involved
             </Link>
           </Cta>
         </div>

@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nova Circuit Robotics" },
+      { title: "Nova Knights Robotics" },
       {
         name: "description",
         content:
-          "Student-led nonprofit robotics and STEM team for middle and high school students.",
+          "Youth robotics competition team in the Chesapeake Bay region, founded in 2024.",
       },
-      { name: "author", content: "Nova Circuit Robotics" },
-      { property: "og:site_name", content: "Nova Circuit Robotics" },
+      { name: "author", content: "Nova Knights" },
+      { property: "og:site_name", content: "Nova Knights" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

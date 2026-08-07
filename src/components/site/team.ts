@@ -1,14 +1,14 @@
-import armaan from "@/assets/member-armaan.jpg.asset.json";
-import ekansh from "@/assets/member-ekansh.jpg.asset.json";
-import sahanvi from "@/assets/member-sahanvi.jpg.asset.json";
-import avni from "@/assets/member-avni.jpg.asset.json";
-import harsehaj from "@/assets/member-harsehaj.jpg.asset.json";
-import suhas from "@/assets/member-suhas.jpg.asset.json";
-import sam from "@/assets/member-sam.jpg.asset.json";
-import vashisht from "@/assets/member-vashisht.jpg.asset.json";
-import ariv from "@/assets/member-ariv.jpg.asset.json";
-import sanjeev from "@/assets/member-sanjeev.jpg.asset.json";
-import srikar from "@/assets/member-srikar.jpg.asset.json";
+import armaan from "@/assets/member-armaan.png.asset.json";
+import ekansh from "@/assets/member-ekansh.png.asset.json";
+import sahanvi from "@/assets/member-sahanvi.png.asset.json";
+import avni from "@/assets/member-avni.png.asset.json";
+import harsehaj from "@/assets/member-harsehaj.png.asset.json";
+import suhas from "@/assets/member-suhas.png.asset.json";
+import sam from "@/assets/member-sam.png.asset.json";
+import vashisht from "@/assets/member-vashisht.png.asset.json";
+import ariv from "@/assets/member-ariv.png.asset.json";
+import sanjeev from "@/assets/member-sanjeev.png.asset.json";
+import srikar from "@/assets/member-srikar.png.asset.json";
 
 export type Member = {
   name: string;

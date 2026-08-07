@@ -11,9 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as ApplyRouteImport } from './routes/apply'
-import { Route as AwardsRouteImport } from './routes/awards'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as OutreachRouteImport } from './routes/outreach'
 import { Route as ProgramsRouteImport } from './routes/programs'
 
@@ -25,21 +22,6 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApplyRoute = ApplyRouteImport.update({
-  id: '/apply',
-  path: '/apply',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AwardsRoute = AwardsRouteImport.update({
-  id: '/awards',
-  path: '/awards',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OutreachRoute = OutreachRouteImport.update({
@@ -56,18 +38,12 @@ const ProgramsRoute = ProgramsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/apply': typeof ApplyRoute
-  '/awards': typeof AwardsRoute
-  '/contact': typeof ContactRoute
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/apply': typeof ApplyRoute
-  '/awards': typeof AwardsRoute
-  '/contact': typeof ContactRoute
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
 }
@@ -75,48 +51,20 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/apply': typeof ApplyRoute
-  '/awards': typeof AwardsRoute
-  '/contact': typeof ContactRoute
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/apply'
-    | '/awards'
-    | '/contact'
-    | '/outreach'
-    | '/programs'
+  fullPaths: '/' | '/about' | '/outreach' | '/programs'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/apply'
-    | '/awards'
-    | '/contact'
-    | '/outreach'
-    | '/programs'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/apply'
-    | '/awards'
-    | '/contact'
-    | '/outreach'
-    | '/programs'
+  to: '/' | '/about' | '/outreach' | '/programs'
+  id: '__root__' | '/' | '/about' | '/outreach' | '/programs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  ApplyRoute: typeof ApplyRoute
-  AwardsRoute: typeof AwardsRoute
-  ContactRoute: typeof ContactRoute
   OutreachRoute: typeof OutreachRoute
   ProgramsRoute: typeof ProgramsRoute
 }
@@ -135,27 +83,6 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apply': {
-      id: '/apply'
-      path: '/apply'
-      fullPath: '/apply'
-      preLoaderRoute: typeof ApplyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/awards': {
-      id: '/awards'
-      path: '/awards'
-      fullPath: '/awards'
-      preLoaderRoute: typeof AwardsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/outreach': {
@@ -178,9 +105,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  ApplyRoute: ApplyRoute,
-  AwardsRoute: AwardsRoute,
-  ContactRoute: ContactRoute,
   OutreachRoute: OutreachRoute,
   ProgramsRoute: ProgramsRoute,
 }

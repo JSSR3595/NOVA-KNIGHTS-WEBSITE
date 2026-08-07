@@ -19,9 +19,7 @@ export function Hero() {
             competition team.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            We design, build, and program competition robots in the Chesapeake Bay region.
-            In our short history we have qualified for the Chesapeake Championship and rank
-            in the top 10% of the region.
+            {"\n"}
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Cta asChild size="lg" className="rounded-full">

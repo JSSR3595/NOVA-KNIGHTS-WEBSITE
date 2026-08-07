@@ -6,13 +6,9 @@ import { INSTAGRAM_URL } from "./links";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/outreach", label: "Outreach" },
   { to: "/programs", label: "Programs" },
-  { to: "/awards", label: "Awards" },
-  { to: "/apply", label: "Get Involved" },
-  { to: "/contact", label: "Contact" },
 ] as const;
-
-
 
 export function SiteFooter() {
   return (
@@ -20,11 +16,11 @@ export function SiteFooter() {
       <div className="container-page grid gap-12 py-16 text-center sm:text-left md:grid-cols-3 md:py-20">
         <div className="flex flex-col items-center gap-4 sm:items-start">
           <div className="flex items-center gap-3">
-            <LogoMark className="size-9" />
+            <LogoMark className="size-11" />
             <span className="font-display text-lg font-bold">Nova Knights</span>
           </div>
           <p className="max-w-xs text-sm text-slate-section-foreground/70">
-            A youth robotics competition team in the Chesapeake Bay region, founded in 2024.
+            FTC team #32326 — 11 rookies from the Chesapeake Bay region, founded in 2024.
           </p>
         </div>
 

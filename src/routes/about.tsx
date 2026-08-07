@@ -52,12 +52,12 @@ function AboutPage() {
                 height={310}
                 loading="lazy"
                 alt={`${m.name}, ${m.role}`}
-                className="mx-auto size-40 rounded-full object-cover"
+                className="mx-auto size-44 object-contain"
               />
-              <h3 className="font-display mt-4 text-xl font-bold">{m.name}</h3>
-              <p className="font-display mt-1 text-[0.8125rem] font-semibold tracking-[0.08em] text-primary uppercase">
+              <h3 className="font-display mt-3 text-base font-bold tracking-[0.06em] text-primary uppercase">
+                <span className="sr-only">{m.name} — </span>
                 {m.role}
-              </p>
+              </h3>
               <p className="mt-2 text-sm text-muted-foreground">{m.focus}</p>
             </li>
           ))}

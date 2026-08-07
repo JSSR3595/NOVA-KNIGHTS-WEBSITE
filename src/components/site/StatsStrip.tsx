@@ -1,16 +1,16 @@
 import { Reveal } from "./Reveal";
 
-/** Only facts approved by the team are shown here. */
+/** Facts taken directly from the team portfolio. */
 const facts = [
+  { value: "#32326", label: "FTC team" },
   { value: "2024", label: "Founded" },
+  { value: "11", label: "Members" },
   { value: "Chesapeake Bay", label: "Region" },
-  { value: "Championship", label: "Qualified" },
-  { value: "Top 10%", label: "Regional ranking" },
 ];
 
 export function StatsStrip() {
   return (
-    <section className="container-page pb-4 md:pb-8" aria-label="Team at a glance">
+    <section className="container-page pb-16 md:pb-24" aria-label="Team at a glance">
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {facts.map((f, i) => (
           <Reveal as="li" key={f.label} delay={i * 90}>

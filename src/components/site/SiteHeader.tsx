@@ -3,15 +3,14 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, Instagram } from "lucide-react";
 import { Cta } from "./Cta";
 import { LogoMark, Wordmark } from "./Logo";
+import { INSTAGRAM_URL } from "./links";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/outreach", label: "Outreach" },
   { to: "/programs", label: "Programs" },
-  { to: "/awards", label: "Awards" },
-  { to: "/apply", label: "Get Involved" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -70,7 +69,7 @@ export function SiteHeader() {
     >
       <div className="container-page flex h-20 items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-3" aria-label="Nova Knights home">
-          <LogoMark className="size-9 shrink-0" />
+          <LogoMark className="size-11" />
           <Wordmark />
         </Link>
 
@@ -88,10 +87,10 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <Cta asChild size="sm" className="hidden rounded-full sm:inline-flex">
-            <Link to="/apply">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
               <Instagram strokeWidth={1.75} aria-hidden="true" />
-              Get involved
-            </Link>
+              Follow us
+            </a>
           </Cta>
 
           <button
@@ -133,7 +132,7 @@ export function SiteHeader() {
           )}
         >
           <div className="flex items-center justify-between">
-            <LogoMark className="size-9" />
+            <LogoMark className="size-11" />
             <button
               type="button"
               onClick={() => {
@@ -164,10 +163,10 @@ export function SiteHeader() {
           </nav>
 
           <Cta asChild className="mt-8 w-full rounded-full">
-            <Link to="/apply" onClick={() => setOpen(false)}>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
               <Instagram strokeWidth={1.75} aria-hidden="true" />
-              Get involved
-            </Link>
+              Follow us
+            </a>
           </Cta>
         </div>
       </div>

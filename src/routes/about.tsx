@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
+import { MEMBERS } from "@/components/site/team";
 
-const title = "About Nova Knights — Chesapeake Bay Region Robotics";
+const title = "About Nova Knights — FTC Team #32326";
 const description =
-  "Nova Knights is a youth robotics competition team founded in 2024, competing in the Chesapeake Bay region.";
+  "Meet the Nova Knights: 11 FTC rookies from the Chesapeake Bay region building engineering, programming, and teamwork skills through hands-on learning.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -21,33 +22,47 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const facts = [
-  { label: "Founded", value: "2024" },
-  { label: "Region", value: "Chesapeake Bay" },
-  { label: "Ranking", value: "Top 10% of the Chesapeake region" },
-  { label: "Highlight", value: "Qualified for the Chesapeake Championship" },
-];
-
 function AboutPage() {
   return (
     <PageShell
       eyebrow="About us"
-      title="Nova Knights"
-      intro="A youth robotics competition team founded in 2024, competing in the Chesapeake Bay region."
+      title="We are the Nova Knights"
+      intro="An enthusiastic team of 11 FTC rookies driven by curiosity and creativity, developing strong engineering, programming, and teamwork skills through hands-on learning and focused specialization."
     >
-      <ul className="grid gap-4 sm:grid-cols-2">
-        {facts.map((f) => (
-          <li
-            key={f.label}
-            className="rounded-2xl border border-border bg-card p-7 shadow-card transition-all duration-200 ease-out hover:shadow-card-hover"
-          >
-            <p className="font-display text-[0.8125rem] font-semibold tracking-[0.02em] text-muted-foreground uppercase">
-              {f.label}
-            </p>
-            <p className="font-display mt-2 text-xl font-semibold">{f.value}</p>
-          </li>
-        ))}
-      </ul>
+      <div className="bg-gradient-brand rounded-3xl px-6 py-12 text-center text-primary-foreground shadow-card-hover md:px-16 md:py-14">
+        <h2 className="font-display text-sm font-semibold tracking-[0.18em] uppercase text-accent">
+          Our mission
+        </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-balance md:text-xl">
+          To grow as leaders and strengthen our robotics skills, while upholding FIRST
+          values, and inspiring the next generation of STEM leaders.
+        </p>
+      </div>
+
+      <section aria-labelledby="team-heading" className="mt-20">
+        <h2 id="team-heading" className="h-section text-balance">
+          The team
+        </h2>
+        <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {MEMBERS.map((m) => (
+            <li key={m.name} className="text-center">
+              <img
+                src={m.photo}
+                width={310}
+                height={310}
+                loading="lazy"
+                alt={`${m.name}, ${m.role}`}
+                className="mx-auto size-44 object-contain"
+              />
+              <h3 className="font-display mt-3 text-base font-bold tracking-[0.06em] text-primary uppercase">
+                <span className="sr-only">{m.name} — </span>
+                {m.role}
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">{m.focus}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
     </PageShell>
   );
 }

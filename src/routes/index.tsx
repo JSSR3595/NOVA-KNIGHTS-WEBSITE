@@ -2,12 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
 import { StatsStrip } from "@/components/site/StatsStrip";
-import { MissionSection } from "@/components/site/MissionSection";
 import { SupportCallout } from "@/components/site/SupportCallout";
 
-const title = "Nova Knights — Chesapeake Bay Region Robotics Team";
+const title = "Nova Knights — FTC Robotics Team #32326";
 const description =
-  "Nova Knights is a youth robotics competition team founded in 2024 in the Chesapeake Bay region, a Chesapeake Championship qualifier ranked in the top 10% of the region.";
+  "Nova Knights, FTC team #32326 from the Chesapeake Bay region: 11 rookies driven by curiosity and creativity, building MOBY for the 2025–26 season.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,7 +43,6 @@ function Index() {
     <SiteLayout>
       <Hero />
       <StatsStrip />
-      <MissionSection />
       <SupportCallout />
     </SiteLayout>
   );

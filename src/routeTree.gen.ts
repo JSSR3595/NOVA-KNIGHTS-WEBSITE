@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as AwardsRouteImport } from './routes/awards'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as OutreachRouteImport } from './routes/outreach'
 import { Route as ProgramsRouteImport } from './routes/programs'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OutreachRoute = OutreachRouteImport.update({
+  id: '/outreach',
+  path: '/outreach',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgramsRoute = ProgramsRouteImport.update({
   id: '/programs',
   path: '/programs',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/apply': typeof ApplyRoute
   '/awards': typeof AwardsRoute
   '/contact': typeof ContactRoute
+  '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/apply': typeof ApplyRoute
   '/awards': typeof AwardsRoute
   '/contact': typeof ContactRoute
+  '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
 }
 export interface FileRoutesById {
@@ -70,13 +78,28 @@ export interface FileRoutesById {
   '/apply': typeof ApplyRoute
   '/awards': typeof AwardsRoute
   '/contact': typeof ContactRoute
+  '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/apply' | '/awards' | '/contact' | '/programs'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/apply'
+    | '/awards'
+    | '/contact'
+    | '/outreach'
+    | '/programs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/apply' | '/awards' | '/contact' | '/programs'
+  to:
+    | '/'
+    | '/about'
+    | '/apply'
+    | '/awards'
+    | '/contact'
+    | '/outreach'
+    | '/programs'
   id:
     | '__root__'
     | '/'
@@ -84,6 +107,7 @@ export interface FileRouteTypes {
     | '/apply'
     | '/awards'
     | '/contact'
+    | '/outreach'
     | '/programs'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +117,7 @@ export interface RootRouteChildren {
   ApplyRoute: typeof ApplyRoute
   AwardsRoute: typeof AwardsRoute
   ContactRoute: typeof ContactRoute
+  OutreachRoute: typeof OutreachRoute
   ProgramsRoute: typeof ProgramsRoute
 }
 
@@ -133,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/outreach': {
+      id: '/outreach'
+      path: '/outreach'
+      fullPath: '/outreach'
+      preLoaderRoute: typeof OutreachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programs': {
       id: '/programs'
       path: '/programs'
@@ -149,18 +181,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApplyRoute: ApplyRoute,
   AwardsRoute: AwardsRoute,
   ContactRoute: ContactRoute,
+  OutreachRoute: OutreachRoute,
   ProgramsRoute: ProgramsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

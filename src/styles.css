@@ -373,3 +373,41 @@
   }
 }
 
+
+/* ---------- Cosmos surfaces ---------- */
+
+/* Frosted panel used for cards, stats, and callouts */
+@utility glass-panel {
+  background: linear-gradient(
+    160deg,
+    color-mix(in oklab, var(--color-card) 88%, transparent),
+    color-mix(in oklab, var(--color-background) 88%, transparent)
+  );
+  border: 1px solid oklch(1 0 0 / 0.09);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color 300ms var(--ease-out-soft),
+    transform 300ms var(--ease-out-soft),
+    box-shadow 300ms var(--ease-out-soft);
+}
+
+@utility glass-panel-hover {
+  &:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklab, var(--color-accent) 45%, transparent);
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+/* Small capsule label */
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid oklch(1 0 0 / 0.12);
+  background: oklch(1 0 0 / 0.04);
+  padding: 0.4rem 0.9rem;
+  backdrop-filter: blur(8px);
+}

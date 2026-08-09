@@ -306,7 +306,7 @@
     color-mix(in oklab, var(--color-primary) 12%, transparent) 55%,
     transparent 78%
   );
-  mix-blend-mode: multiply;
+  mix-blend-mode: screen;
   filter: blur(12px);
 }
 

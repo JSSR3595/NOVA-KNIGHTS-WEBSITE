@@ -18,6 +18,7 @@ export function StatsStrip() {
               <span className="font-display text-2xl font-bold text-primary md:text-3xl">
                 {f.value}
               </span>
+
               <p className="font-display mt-2 text-[0.8125rem] font-semibold tracking-[0.02em] text-muted-foreground uppercase">
                 {f.label}
               </p>

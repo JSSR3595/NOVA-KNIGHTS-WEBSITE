@@ -57,7 +57,7 @@ export function Starfield() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(123, 30, 40, ${p.a})`;
+        ctx.fillStyle = `rgba(255, 244, 232, ${p.a})`;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -66,7 +66,7 @@ export function Starfield() {
           const dy = p.y - q.y;
           const d2 = dx * dx + dy * dy;
           if (d2 < 130 * 130) {
-            const o = (1 - Math.sqrt(d2) / 130) * 0.16;
+            const o = (1 - Math.sqrt(d2) / 130) * 0.12;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
@@ -75,6 +75,7 @@ export function Starfield() {
             ctx.stroke();
           }
         }
+
       }
       raf = requestAnimationFrame(draw);
     };

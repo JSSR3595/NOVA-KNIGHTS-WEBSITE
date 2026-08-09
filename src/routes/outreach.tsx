@@ -85,7 +85,7 @@ function OutreachPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 rounded-2xl border border-border bg-card p-6 font-medium shadow-card">
+            <p className="mt-6 glass-panel rounded-2xl p-6 font-medium">
               The session increased student interest in FTC and provided early exposure to
               robot design, programming differences, and FIRST values.
             </p>
@@ -98,7 +98,7 @@ function OutreachPage() {
                   src={p.url}
                   alt={p.alt}
                   loading="lazy"
-                  className={`w-full rounded-2xl object-cover shadow-card ${
+                  className={`w-full rounded-2xl border border-white/10 object-cover shadow-card ${
                     i === 0 ? "aspect-[3/2]" : "aspect-square"
                   }`}
                 />
@@ -116,7 +116,7 @@ function OutreachPage() {
           {teams.map((t) => (
             <li
               key={t.name}
-              className="rounded-2xl border border-border bg-card p-7 shadow-card transition-all duration-200 ease-out hover:shadow-card-hover"
+              className="glass-panel glass-panel-hover rounded-2xl p-7"
             >
               <h3 className="font-display text-xl font-semibold text-primary">{t.name}</h3>
               <ul className="mt-4 grid gap-3">

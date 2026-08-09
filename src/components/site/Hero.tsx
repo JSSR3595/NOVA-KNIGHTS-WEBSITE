@@ -2,7 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Cta } from "./Cta";
 import { LOGO_URL } from "./Logo";
+import { Parallax } from "./Parallax";
+import { TiltCard } from "./TiltCard";
 import robotAsset from "@/assets/robot-moby.jpg.asset.json";
+
 
 export function Hero() {
   return (

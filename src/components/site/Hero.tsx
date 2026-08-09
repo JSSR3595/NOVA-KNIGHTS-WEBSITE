@@ -2,7 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Cta } from "./Cta";
 import { LOGO_URL } from "./Logo";
+import { Parallax } from "./Parallax";
+import { TiltCard } from "./TiltCard";
 import robotAsset from "@/assets/robot-moby.jpg.asset.json";
+
 
 export function Hero() {
   return (
@@ -41,18 +44,23 @@ export function Hero() {
           </div>
         </div>
 
-        <figure className="relative">
-          <img
-            src={robotAsset.url}
-            width={1002}
-            height={1341}
-            alt="MOBY, the Nova Knights competition robot, on the practice field"
-            className="aspect-[4/5] w-full rounded-2xl object-cover shadow-card-hover"
-          />
-          <figcaption className="font-display mt-3 text-center text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-            MOBY · 2025–26 robot
-          </figcaption>
-        </figure>
+        <Parallax speed={0.07}>
+          <figure className="relative">
+            <TiltCard>
+              <img
+                src={robotAsset.url}
+                width={1002}
+                height={1341}
+                alt="MOBY, the Nova Knights competition robot, on the practice field"
+                className="aspect-[4/5] w-full rounded-2xl object-cover shadow-card-hover"
+              />
+              <span aria-hidden="true" className="tilt-shine" />
+            </TiltCard>
+            <figcaption className="font-display mt-3 text-center text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              MOBY · 2025–26 robot
+            </figcaption>
+          </figure>
+        </Parallax>
       </div>
     </section>
   );

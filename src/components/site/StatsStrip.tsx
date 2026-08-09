@@ -14,7 +14,7 @@ export function StatsStrip() {
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {facts.map((f, i) => (
           <Reveal as="li" key={f.label} delay={i * 90}>
-            <div className="h-full rounded-2xl border border-border bg-card p-6 text-center shadow-card transition-all duration-200 ease-out hover:scale-[1.02] hover:shadow-card-hover">
+            <div className="glass-panel glass-panel-hover h-full rounded-2xl p-6">
               <span className="font-display text-2xl font-bold text-primary md:text-3xl">
                 {f.value}
               </span>

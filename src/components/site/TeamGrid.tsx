@@ -1,17 +1,17 @@
 import { Reveal } from "./Reveal";
 import { MEMBERS } from "./team";
 
-/** Staggered scroll-reveal grid of team members with hover profile reveal. */
+/** Staggered scroll-reveal grid of team members. Photos stay uncropped. */
 export function TeamGrid() {
   return (
-    <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {MEMBERS.map((m, i) => (
-        <Reveal as="li" key={m.name} delay={(i % 3) * 90 + Math.floor(i / 3) * 40}>
-          <div className="member-card group h-full rounded-2xl border border-transparent p-5 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-border hover:bg-card hover:shadow-card-hover">
-            <div className="relative mx-auto size-44">
+        <Reveal as="li" key={m.name} delay={(i % 4) * 80 + Math.floor(i / 4) * 40}>
+          <div className="glass-panel glass-panel-hover group h-full overflow-hidden rounded-2xl p-4">
+            <div className="relative">
               <span
                 aria-hidden="true"
-                className="absolute inset-2 -z-10 rounded-full bg-accent/25 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute inset-6 -z-10 rounded-full bg-accent/25 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
               />
               <img
                 src={m.photo}
@@ -19,13 +19,11 @@ export function TeamGrid() {
                 height={310}
                 loading="lazy"
                 alt={`${m.name}, ${m.role}`}
-                className="size-44 object-contain transition-transform duration-300 ease-out group-hover:scale-105"
+                className="mx-auto size-40 object-contain transition-transform duration-300 ease-out group-hover:scale-105"
               />
             </div>
-            <h3 className="font-display mt-3 text-base font-bold tracking-[0.06em] text-primary uppercase">
-              <span className="sr-only">{m.name} — </span>
-              {m.role}
-            </h3>
+            <h3 className="font-display mt-4 text-base font-bold">{m.name}</h3>
+            <p className="mt-1 text-sm font-medium text-primary">{m.role}</p>
             <p className="member-focus mt-2 text-sm text-muted-foreground">{m.focus}</p>
           </div>
         </Reveal>

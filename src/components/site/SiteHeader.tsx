@@ -64,7 +64,9 @@ export function SiteHeader() {
     <header
       className={cn(
         "sticky top-0 z-50 transition-all duration-200 ease-out",
-        scrolled ? "bg-background/92 shadow-card backdrop-blur-md" : "bg-transparent",
+        scrolled
+          ? "border-b border-white/10 bg-background/80 shadow-card backdrop-blur-xl"
+          : "bg-transparent",
       )}
     >
       <div className="container-page flex h-20 items-center justify-between gap-6">
@@ -99,7 +101,7 @@ export function SiteHeader() {
             onClick={() => setOpen(true)}
             aria-label="Open menu"
             aria-expanded={open}
-            className="grid size-11 place-items-center rounded-lg border border-border bg-card lg:hidden"
+            className="grid size-11 place-items-center rounded-lg border border-white/12 bg-white/5 lg:hidden"
           >
             <Menu strokeWidth={1.75} className="size-5" aria-hidden="true" />
           </button>
@@ -117,7 +119,7 @@ export function SiteHeader() {
         <div
           onClick={() => setOpen(false)}
           className={cn(
-            "absolute inset-0 bg-foreground/45 transition-opacity duration-300",
+            "absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300",
             open ? "opacity-100" : "opacity-0",
           )}
         />
@@ -127,7 +129,7 @@ export function SiteHeader() {
           aria-modal="true"
           aria-label="Site menu"
           className={cn(
-            "absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col bg-background p-6 shadow-card-hover transition-transform duration-300 ease-out",
+            "absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col border-l border-white/10 bg-background p-6 shadow-card-hover transition-transform duration-300 ease-out",
             open ? "translate-x-0" : "translate-x-full",
           )}
         >
@@ -140,7 +142,7 @@ export function SiteHeader() {
                 triggerRef.current?.focus();
               }}
               aria-label="Close menu"
-              className="grid size-11 place-items-center rounded-lg border border-border"
+              className="grid size-11 place-items-center rounded-lg border border-white/12"
             >
               <X strokeWidth={1.75} className="size-5" aria-hidden="true" />
             </button>

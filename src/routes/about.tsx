@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
-import { MEMBERS } from "@/components/site/team";
+import { TeamGrid } from "@/components/site/TeamGrid";
 
 const title = "About Nova Knights — FTC Team #32326";
 const description =
@@ -43,25 +43,7 @@ function AboutPage() {
         <h2 id="team-heading" className="h-section text-balance">
           The team
         </h2>
-        <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {MEMBERS.map((m) => (
-            <li key={m.name} className="text-center">
-              <img
-                src={m.photo}
-                width={310}
-                height={310}
-                loading="lazy"
-                alt={`${m.name}, ${m.role}`}
-                className="mx-auto size-44 object-contain"
-              />
-              <h3 className="font-display mt-3 text-base font-bold tracking-[0.06em] text-primary uppercase">
-                <span className="sr-only">{m.name} — </span>
-                {m.role}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">{m.focus}</p>
-            </li>
-          ))}
-        </ul>
+        <TeamGrid />
       </section>
     </PageShell>
   );

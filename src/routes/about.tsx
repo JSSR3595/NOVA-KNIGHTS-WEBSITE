@@ -29,11 +29,15 @@ function AboutPage() {
       title="We are the Nova Knights"
       intro="An enthusiastic team of 11 FTC rookies driven by curiosity and creativity, developing strong engineering, programming, and teamwork skills through hands-on learning and focused specialization."
     >
-      <div className="bg-gradient-brand rounded-3xl px-6 py-12 text-center text-primary-foreground shadow-card-hover md:px-16 md:py-14">
-        <h2 className="font-display text-sm font-semibold tracking-[0.18em] uppercase text-accent">
+      <div className="glass-panel relative overflow-hidden rounded-3xl px-6 py-12 md:px-14">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-20 left-1/3 size-72 rounded-full bg-primary/20 blur-3xl"
+        />
+        <h2 className="font-display text-sm font-semibold tracking-[0.18em] text-accent uppercase">
           Our mission
         </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-lg text-balance md:text-xl">
+        <p className="mt-4 max-w-3xl text-lg text-balance md:text-xl">
           To grow as leaders and strengthen our robotics skills, while upholding FIRST
           values, and inspiring the next generation of STEM leaders.
         </p>
@@ -43,8 +47,12 @@ function AboutPage() {
         <h2 id="team-heading" className="h-section text-balance">
           The team
         </h2>
+        <p className="mt-3 text-muted-foreground">
+          Hover a card to reveal each member&apos;s focus.
+        </p>
         <TeamGrid />
       </section>
+
     </PageShell>
   );
 }

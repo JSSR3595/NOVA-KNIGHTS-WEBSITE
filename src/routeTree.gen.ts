@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as OutreachRouteImport } from './routes/outreach'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as RobotRouteImport } from './routes/robot'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const ProgramsRoute = ProgramsRouteImport.update({
   path: '/programs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RobotRoute = RobotRouteImport.update({
+  id: '/robot',
+  path: '/robot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
+  '/robot': typeof RobotRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
+  '/robot': typeof RobotRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
+  '/robot': typeof RobotRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/outreach' | '/programs'
+  fullPaths: '/' | '/about' | '/outreach' | '/programs' | '/robot'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/outreach' | '/programs'
-  id: '__root__' | '/' | '/about' | '/outreach' | '/programs'
+  to: '/' | '/about' | '/outreach' | '/programs' | '/robot'
+  id: '__root__' | '/' | '/about' | '/outreach' | '/programs' | '/robot'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   OutreachRoute: typeof OutreachRoute
   ProgramsRoute: typeof ProgramsRoute
+  RobotRoute: typeof RobotRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/robot': {
+      id: '/robot'
+      path: '/robot'
+      fullPath: '/robot'
+      preLoaderRoute: typeof RobotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   OutreachRoute: OutreachRoute,
   ProgramsRoute: ProgramsRoute,
+  RobotRoute: RobotRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

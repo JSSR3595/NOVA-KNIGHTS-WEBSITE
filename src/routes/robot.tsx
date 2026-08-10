@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { Reveal } from "@/components/site/Reveal";
-import moby from "@/assets/robot-moby.jpg.asset.json";
+import { MobyDiagram } from "@/components/site/MobyDiagram";
 import d1 from "@/assets/design-1-whiteboard.jpg.asset.json";
-import d2 from "@/assets/design-2-research.jpg.asset.json";
+import d2 from "@/assets/design-2-research-cad.jpg.asset.json";
 import d3 from "@/assets/design-3-prototype.jpg.asset.json";
 import d4 from "@/assets/design-4-improve.jpg.asset.json";
 import intake1 from "@/assets/intake-1.jpg.asset.json";
@@ -48,7 +48,7 @@ const steps = [
     heading: "Research",
     body: "We research online to explore new robot concepts and proven design approaches.",
     img: d2.url,
-    alt: "Team researching robot mechanisms and linear actuators on a computer",
+    alt: "CAD render of a robot mechanism studied during research",
   },
   {
     n: "03",
@@ -64,24 +64,6 @@ const steps = [
     img: d4.url,
     alt: "Assembled robot chassis being adjusted and refined by the team",
   },
-];
-
-const mobyParts = [
-  {
-    name: "3D printed (CAD) shooter",
-    note: "Design choice: enables consistent shooting from multiple field positions.",
-  },
-  {
-    name: "3D printed (CAD) funnel",
-    note: "Design choice: guides artifacts cleanly while preventing penalties.",
-  },
-  {
-    name: "Three sets of rubber bands",
-    note: "Purpose: reduces jamming and allows holding multiple artifacts reliably.",
-  },
-  { name: "Limelight camera", note: "Vision-based alignment and distance estimation." },
-  { name: "Ramp with barriers", note: "Barrier servo keeps artifacts contained." },
-  { name: "3D printed (CAD) gears", note: "Custom gearing designed in CAD." },
 ];
 
 const intake = [
@@ -234,22 +216,10 @@ function RobotPage() {
         <h2 id="moby-heading" className="h-section text-balance">
           MOBY, part by part
         </h2>
-        <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
-          <img
-            src={moby.url}
-            alt="MOBY, the Nova Knights competition robot"
-            loading="lazy"
-            className="w-full rounded-2xl border border-white/10 bg-muted object-contain shadow-card"
-          />
-          <ul className="grid gap-4">
-            {mobyParts.map((p) => (
-              <li key={p.name} className="glass-panel rounded-2xl p-6">
-                <h3 className="font-display font-semibold text-primary">{p.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.note}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <p className="mt-4 max-w-2xl text-muted-foreground">
+          Hover (or focus) a part to highlight it on the robot.
+        </p>
+        <MobyDiagram />
       </section>
 
       <section aria-labelledby="intake-heading" className="mt-20">

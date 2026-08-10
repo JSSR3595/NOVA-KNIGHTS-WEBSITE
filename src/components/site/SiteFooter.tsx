@@ -6,6 +6,7 @@ import { INSTAGRAM_URL } from "./links";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/robot", label: "Design & Build" },
   { to: "/outreach", label: "Outreach" },
   { to: "/programs", label: "Programs" },
 ] as const;

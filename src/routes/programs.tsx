@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram } from "lucide-react";
+import { Instagram, ClipboardList } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { Reveal } from "@/components/site/Reveal";
 import { Cta } from "@/components/site/Cta";
-import { INSTAGRAM_URL } from "@/components/site/links";
+import { INSTAGRAM_URL, INTEREST_FORM_URL } from "@/components/site/links";
 
 const title = "Programs, Terms & FAQ — Nova Knights Robotics";
 const description =
@@ -249,14 +249,29 @@ function ProgramsPage() {
         <FaqList items={volunteering} />
       </section>
 
-      <div className="mt-16">
-        <Cta asChild size="lg" className="rounded-full">
+      <section aria-labelledby="join-heading" className="mt-20">
+        <h2 id="join-heading" className="h-section text-balance">
+          Interested? Here is how to reach us
+        </h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">
+          Fill out our interest form and we will get back to you, usually within a day or two. You
+          can also shoot us a DM on Instagram if you have a quick question.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Cta asChild size="lg" className="rounded-full">
+            <a href={INTEREST_FORM_URL} target="_blank" rel="noreferrer">
+              <ClipboardList strokeWidth={1.75} aria-hidden="true" />
+              Fill out the interest form
+            </a>
+          </Cta>
+        <Cta asChild variant="outline" size="lg" className="rounded-full">
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
             <Instagram strokeWidth={1.75} aria-hidden="true" />
             @novaknights32326
           </a>
         </Cta>
-      </div>
+        </div>
+      </section>
     </PageShell>
   );
 }

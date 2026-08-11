@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram } from "lucide-react";
+import { Instagram, ClipboardList } from "lucide-react";
 import { LogoMark } from "./Logo";
-import { INSTAGRAM_URL } from "./links";
+import { INSTAGRAM_URL, INTEREST_FORM_URL } from "./links";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -57,6 +57,18 @@ export function SiteFooter() {
             <Instagram strokeWidth={1.75} className="size-5" aria-hidden="true" />
             @novaknights32326
           </a>
+          <a
+            href={INTEREST_FORM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-11 items-center gap-3 rounded-full border border-white/15 px-4 text-sm text-slate-section-foreground/80 transition-colors duration-300 hover:border-accent hover:text-accent"
+          >
+            <ClipboardList strokeWidth={1.75} className="size-5" aria-hidden="true" />
+            Interest form
+          </a>
+          <p className="max-w-xs text-sm text-slate-section-foreground/60">
+            Interested in joining? Fill out the form or shoot us a DM on Instagram.
+          </p>
         </div>
       </div>
 

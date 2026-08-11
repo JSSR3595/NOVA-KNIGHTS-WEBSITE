@@ -139,7 +139,7 @@ const programQuestions: Faq[] = [
   {
     q: "Where do the team meetings happen?",
     body: [
-      "All our programs are run in our house’s basement, which is a dedicated space for our robotics programs. We are in the Bradley Farms neighborhood in Herndon VA. Some kids carpool to save travel time. That may be an option for you, but depends upon if another kid lives near you.",
+      "All our programs are run in our house’s basement, which is a dedicated space for our robotics programs. We are in the Bradley Farms neighborhood in Herndon VA. You should check how long it will take you to drive here: https://maps.app.goo.gl/c9MGyvRCMxVNtwL88 — some kids carpool to save travel time. That may be an option for you, but depends upon if another kid lives near you.",
     ],
   },
   {

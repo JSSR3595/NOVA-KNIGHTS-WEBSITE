@@ -15,43 +15,19 @@ export const mobyParts: MobyPart[] = [
     id: "shooter",
     name: "3D printed (CAD) shooter",
     note: "Design choice: enables consistent shooting from multiple field positions.",
-    box: { x: 22, y: 20, w: 36, h: 24 },
+    box: { x: 23, y: 20, w: 35, h: 24 },
   },
   {
     id: "limelight",
     name: "Limelight camera",
     note: "Vision-based alignment and distance estimation.",
-    box: { x: 57, y: 32, w: 15, h: 10 },
-  },
-  {
-    id: "servo",
-    name: "Barrier servo",
-    note: "Barrier servo keeps artifacts contained.",
-    box: { x: 48, y: 34, w: 11, h: 10 },
-  },
-  {
-    id: "gears",
-    name: "3D printed (CAD) gears",
-    note: "Custom gearing designed in CAD.",
-    box: { x: 66, y: 42, w: 13, h: 11 },
-  },
-  {
-    id: "bands",
-    name: "Three sets of rubber bands",
-    note: "Purpose: reduces jamming and allows holding multiple artifacts reliably.",
-    box: { x: 72, y: 44, w: 20, h: 14 },
-  },
-  {
-    id: "ramp",
-    name: "Ramp with barriers",
-    note: "Design choice: guides artifacts cleanly while preventing penalties.",
-    box: { x: 61, y: 51, w: 34, h: 30 },
+    box: { x: 59, y: 31, w: 15, h: 11 },
   },
   {
     id: "funnel",
     name: "3D printed (CAD) funnel",
     note: "Design choice: guides artifacts cleanly while preventing penalties.",
-    box: { x: 5, y: 42, w: 58, h: 47 },
+    box: { x: 5, y: 42, w: 60, h: 41 },
   },
 ];
 

@@ -1,7 +1,7 @@
 import { Instagram, ArrowRight } from "lucide-react";
 import { Cta } from "./Cta";
 import { Reveal } from "./Reveal";
-import { INSTAGRAM_URL } from "./links";
+import { INSTAGRAM_URL, INTEREST_FORM_URL } from "./links";
 
 export function SupportCallout() {
   return (
@@ -14,17 +14,26 @@ export function SupportCallout() {
           />
           <Instagram strokeWidth={1.5} aria-hidden="true" className="size-10 text-accent" />
           <h2 id="support-heading" className="h-section mt-6 text-balance">
-            Follow the season on Instagram
+            Get in touch with the team
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Build updates, competition days, and team news are posted to our page.
+            Build updates, competition days, and team news are posted to our Instagram. If you are
+            interested in our programs, fill out the interest form or shoot us a DM.
           </p>
-          <Cta asChild variant="outline" size="lg" className="mt-9 rounded-full">
-            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-              @novaknights32326
-              <ArrowRight strokeWidth={1.75} aria-hidden="true" />
-            </a>
-          </Cta>
+          <div className="mt-9 flex flex-wrap gap-4">
+            <Cta asChild size="lg" className="rounded-full">
+              <a href={INTEREST_FORM_URL} target="_blank" rel="noreferrer">
+                Fill out the interest form
+                <ArrowRight strokeWidth={1.75} aria-hidden="true" />
+              </a>
+            </Cta>
+            <Cta asChild variant="outline" size="lg" className="rounded-full">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+                <Instagram strokeWidth={1.75} aria-hidden="true" />
+                @novaknights32326
+              </a>
+            </Cta>
+          </div>
         </div>
       </Reveal>
 

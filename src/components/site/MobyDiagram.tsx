@@ -114,8 +114,8 @@ export function MobyDiagram() {
           )}
         />
 
-        {/* Hotspot outlines on the full robot photo */}
-        {mobyParts.map((p) => (
+        {/* Hotspot outlines on the full robot photo (only parts visible in it) */}
+        {mobyParts.filter((p) => p.inView).map((p) => (
           <button
             key={p.id}
             type="button"

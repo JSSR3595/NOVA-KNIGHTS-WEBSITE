@@ -3,14 +3,19 @@ import { cn } from "@/lib/utils";
 const moby = { url: "/images/robot-moby.jpg" };
 const shooter3 = { url: "/images/shooter-3.jpg" };
 const intake3 = { url: "/images/intake-3.jpg" };
+
+type Box = { x: number; y: number; w: number; h: number };
+
 /** Hotspot boxes are percentages of the photo (left/top/width/height). */
 export type MobyPart = {
   id: string;
   name: string;
   note: string;
-  box: { x: number; y: number; w: number; h: number };
-  /** Optional dedicated close-up from the portfolio, shown instead of a zoom. */
-  alt?: { src: string; caption: string; alt: string };
+  box: Box;
+  /** Optional dedicated close-up; shown with a slow crossfade, with its own box. */
+  alt?: { src: string; caption: string; alt: string; box: Box };
+  /** When true, we never switch the photo — the part is clearly visible. */
+  inView?: boolean;
 };
 
 export const mobyParts: MobyPart[] = [
@@ -18,74 +23,82 @@ export const mobyParts: MobyPart[] = [
     id: "shooter",
     name: "3D printed (CAD) shooter",
     note: "Design choice: enables consistent shooting from multiple field positions.",
-    box: { x: 24, y: 21, w: 36, h: 22 },
-    alt: {
-      src: shooter3.url,
-      caption: "Final CAD shooter, off the robot",
-      alt: "3D printed shooter part with a yellow internal ramp",
-    },
-  },
-  {
-    id: "servo",
-    name: "Barrier servo",
-    note: "Barrier servo keeps artifacts contained.",
-    box: { x: 48, y: 35, w: 13, h: 10 },
+    box: { x: 16, y: 1, w: 42, h: 29 },
+    inView: true,
   },
   {
     id: "limelight",
     name: "Limelight camera",
     note: "Vision-based alignment and distance estimation.",
-    box: { x: 60, y: 32, w: 13, h: 10 },
+    box: { x: 53, y: 22, w: 14, h: 10 },
+    inView: true,
+  },
+  {
+    id: "funnel",
+    name: "3D printed (CAD) funnel",
+    note: "Design choice: guides artifacts cleanly while preventing penalties.",
+    box: { x: 21, y: 2, w: 21, h: 21 },
+    inView: true,
+  },
+  {
+    id: "servo",
+    name: "Barrier servo",
+    note: "Barrier servo keeps artifacts contained.",
+    box: { x: 7, y: 25, w: 18, h: 10 },
   },
   {
     id: "gears",
     name: "3D printed (CAD) gears",
     note: "Custom gearing designed in CAD.",
-    box: { x: 71, y: 39, w: 18, h: 12 },
+    box: { x: 30, y: 40, w: 30, h: 20 },
     alt: {
       src: intake3.url,
       caption: "Intake assembly with the printed gears",
-      alt: "3D printed intake mechanism showing printed gears and rubber bands",
+      alt: "3D printed intake mechanism showing yellow printed gears",
+      box: { x: 11, y: 15, w: 20, h: 50 },
     },
   },
   {
     id: "bands",
     name: "Three sets of rubber bands",
     note: "Purpose: reduces jamming and allows holding multiple artifacts reliably.",
-    box: { x: 67, y: 50, w: 25, h: 15 },
+    box: { x: 30, y: 40, w: 30, h: 20 },
     alt: {
       src: intake3.url,
       caption: "Three sets of rubber bands on the final intake",
       alt: "Intake mechanism with three sets of rubber bands",
+      box: { x: 16, y: 16, w: 68, h: 58 },
     },
   },
   {
     id: "ramp",
     name: "Ramp with barriers",
     note: "Design choice: guides artifacts cleanly while preventing penalties.",
-    box: { x: 58, y: 62, w: 34, h: 18 },
-  },
-  {
-    id: "funnel",
-    name: "3D printed (CAD) funnel",
-    note: "Design choice: guides artifacts cleanly while preventing penalties.",
-    box: { x: 6, y: 43, w: 54, h: 40 },
+    box: { x: 30, y: 12, w: 26, h: 22 },
+    alt: {
+      src: shooter3.url,
+      caption: "Yellow internal ramp inside the final CAD shooter",
+      alt: "3D printed shooter part with a yellow internal ramp",
+      box: { x: 34, y: 6, w: 32, h: 50 },
+    },
   },
 ];
 
-function zoomStyle(box: MobyPart["box"]) {
-  const cx = box.x + box.w / 2;
-  const cy = box.y + box.h / 2;
-  const scale = Math.min(2.6, Math.max(1.4, 78 / Math.max(box.w, box.h)));
-  return {
-    transformOrigin: `${cx}% ${cy}%`,
-    transform: `translate(${50 - cx}%, ${50 - cy}%) scale(${scale})`,
-  };
+function boxStyle(b: Box) {
+  return { left: `${b.x}%`, top: `${b.y}%`, width: `${b.w}%`, height: `${b.h}%` };
 }
 
 export function MobyDiagram() {
   const [active, setActive] = useState<string | null>(null);
   const part = mobyParts.find((p) => p.id === active) ?? null;
+  const detail = part?.alt ?? null;
+
+  const on = (id: string) => ({
+    onMouseEnter: () => setActive(id),
+    onMouseLeave: () => setActive((c) => (c === id ? null : c)),
+    onFocus: () => setActive(id),
+    onBlur: () => setActive((c) => (c === id ? null : c)),
+  });
 
   return (
     <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -95,105 +108,84 @@ export function MobyDiagram() {
           alt="MOBY, the Nova Knights competition robot, with labelled subsystems"
           loading="lazy"
           className={cn(
-            "w-full object-contain transition-all duration-500",
-            part && "brightness-[.5] saturate-[.8]",
+            "w-full object-contain transition-all duration-[900ms] ease-in-out",
+            part && "brightness-[.55] saturate-[.85]",
+            detail && "opacity-0",
           )}
         />
 
-        {/* Hotspot outlines on the full robot photo */}
-        {mobyParts.map((p) => {
-          const on = active === p.id;
-          return (
-            <button
-              key={p.id}
-              type="button"
-              onMouseEnter={() => setActive(p.id)}
-              onMouseLeave={() => setActive((c) => (c === p.id ? null : c))}
-              onFocus={() => setActive(p.id)}
-              onBlur={() => setActive((c) => (c === p.id ? null : c))}
-              aria-label={`Highlight ${p.name}`}
-              style={{
-                left: `${p.box.x}%`,
-                top: `${p.box.y}%`,
-                width: `${p.box.w}%`,
-                height: `${p.box.h}%`,
-              }}
-              className={cn(
-                "absolute rounded-xl border-2 transition-all duration-300 outline-none",
-                on
-                  ? "border-accent bg-accent/12 shadow-[0_0_28px_var(--color-accent)]"
-                  : "border-transparent hover:border-accent/60",
-              )}
-            />
-          );
-        })}
+        {/* Hotspot outlines on the full robot photo (only parts visible in it) */}
+        {mobyParts.filter((p) => p.inView).map((p) => (
+          <button
+            key={p.id}
+            type="button"
+            {...on(p.id)}
+            aria-label={`Highlight ${p.name}`}
+            style={boxStyle(p.box)}
+            className={cn(
+              "absolute rounded-xl border-2 transition-all duration-500 outline-none",
+              active === p.id && !p.alt
+                ? "border-accent bg-accent/12 shadow-[0_0_28px_var(--color-accent)]"
+                : "border-transparent hover:border-accent/60",
+              detail && "opacity-0",
+            )}
+          />
+        ))}
 
-        {/* Detail layer: slides over the full photo while a part is active */}
+        {/* Detail layer: slow crossfade over the full photo while a part has an alternate */}
         <div
-          aria-hidden={!part}
+          aria-hidden={!detail}
           className={cn(
-            "pointer-events-none absolute inset-0 overflow-hidden transition-all duration-500 ease-out",
-            part ? "translate-x-0 opacity-100" : "translate-x-full opacity-0",
+            "pointer-events-none absolute inset-0 overflow-hidden transition-opacity duration-[900ms] ease-in-out",
+            detail ? "opacity-100" : "opacity-0",
           )}
         >
-          {part ? (
-            part.alt ? (
+          {detail ? (
+            <>
               <img
-                src={part.alt.src}
-                alt={part.alt.alt}
+                src={detail.src}
+                alt={detail.alt}
                 className="size-full bg-background object-contain"
               />
-            ) : (
-              <img
-                src={moby.url}
-                alt=""
-                style={zoomStyle(part.box)}
-                className="size-full object-contain transition-transform duration-500 ease-out"
+              <span
+                aria-hidden="true"
+                style={boxStyle(detail.box)}
+                className="absolute rounded-xl border-2 border-accent bg-accent/12 shadow-[0_0_28px_var(--color-accent)]"
               />
-            )
-          ) : null}
-          {part ? (
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5 pt-12">
-              <p className="font-display text-sm font-semibold text-accent">{part.name}</p>
-              <p className="mt-1 text-xs text-white/75">
-                {part.alt ? part.alt.caption : "Close-up from the robot photo"}
-              </p>
-            </div>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5 pt-12">
+                <p className="font-display text-sm font-semibold text-accent">{part?.name}</p>
+                <p className="mt-1 text-xs text-white/75">{detail.caption}</p>
+              </div>
+            </>
           ) : null}
         </div>
       </div>
 
       <ul className="grid gap-4">
-        {mobyParts.map((p) => {
-          const on = active === p.id;
-          return (
-            <li key={p.id}>
-              <button
-                type="button"
-                onMouseEnter={() => setActive(p.id)}
-                onMouseLeave={() => setActive((c) => (c === p.id ? null : c))}
-                onFocus={() => setActive(p.id)}
-                onBlur={() => setActive((c) => (c === p.id ? null : c))}
+        {mobyParts.map((p) => (
+          <li key={p.id}>
+            <button
+              type="button"
+              {...on(p.id)}
+              className={cn(
+                "glass-panel w-full rounded-2xl p-6 text-left transition-all duration-300",
+                active === p.id
+                  ? "-translate-y-0.5 border-accent/50 shadow-card-hover"
+                  : "hover:-translate-y-0.5",
+              )}
+            >
+              <h3
                 className={cn(
-                  "glass-panel w-full rounded-2xl p-6 text-left transition-all duration-300",
-                  on
-                    ? "-translate-y-0.5 border-accent/50 shadow-card-hover"
-                    : "hover:-translate-y-0.5",
+                  "font-display font-semibold transition-colors",
+                  active === p.id ? "text-accent" : "text-primary",
                 )}
               >
-                <h3
-                  className={cn(
-                    "font-display font-semibold transition-colors",
-                    on ? "text-accent" : "text-primary",
-                  )}
-                >
-                  {p.name}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.note}</p>
-              </button>
-            </li>
-          );
-        })}
+                {p.name}
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">{p.note}</p>
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );

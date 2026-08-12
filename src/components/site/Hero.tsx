@@ -3,8 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Cta } from "./Cta";
 import { Parallax } from "./Parallax";
 import { TiltCard } from "./TiltCard";
-import robotAsset from "@/assets/robot-moby.jpg.asset.json";
-
+const robotAsset = { url: "/images/robot-moby.jpg" };
 export function Hero() {
   return (
     <section className="relative overflow-hidden" aria-labelledby="hero-heading">

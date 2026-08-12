@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import moby from "@/assets/robot-moby.jpg.asset.json";
-import shooter3 from "@/assets/shooter-3.jpg.asset.json";
-import intake3 from "@/assets/intake-3.jpg.asset.json";
-
+const moby = { url: "/images/robot-moby.jpg" };
+const shooter3 = { url: "/images/shooter-3.jpg" };
+const intake3 = { url: "/images/intake-3.jpg" };
 /** Hotspot boxes are percentages of the photo (left/top/width/height). */
 export type MobyPart = {
   id: string;

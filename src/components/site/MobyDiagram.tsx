@@ -79,7 +79,7 @@ export const mobyParts: MobyPart[] = [
       src: shooter3.url,
       caption: "Yellow internal ramp inside the final CAD shooter",
       alt: "3D printed shooter part with a yellow internal ramp",
-      box: { x: 38, y: 5, w: 36, h: 52 },
+      box: { x: 34, y: 6, w: 32, h: 50 },
     },
   },
 ];

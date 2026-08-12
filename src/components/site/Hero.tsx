@@ -47,8 +47,8 @@ export function Hero() {
               <div className="relative overflow-hidden rounded-2xl border border-white/10">
                 <img
                   src={robotAsset.url}
-                  width={1002}
-                  height={1341}
+                  width={1856}
+                  height={1920}
                   alt="MOBY, the Nova Knights competition robot, on the practice field"
                   className="aspect-[4/3] w-full object-cover"
                 />

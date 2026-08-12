@@ -1,5 +1,4 @@
-import logoAsset from "@/assets/nova-knights-logo.png.asset.json";
-
+const logoAsset = { url: "/images/nova-knights-logo.png" };
 export const LOGO_URL = logoAsset.url;
 
 /** Official Nova Knights team logo (from the team portfolio). */

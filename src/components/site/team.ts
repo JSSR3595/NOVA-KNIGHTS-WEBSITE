@@ -1,15 +1,14 @@
-import armaan from "@/assets/member-armaan.png.asset.json";
-import ekansh from "@/assets/member-ekansh.png.asset.json";
-import sahanvi from "@/assets/member-sahanvi.png.asset.json";
-import avni from "@/assets/member-avni.png.asset.json";
-import harsehaj from "@/assets/member-harsehaj.png.asset.json";
-import suhas from "@/assets/member-suhas.png.asset.json";
-import sam from "@/assets/member-sam.png.asset.json";
-import vashisht from "@/assets/member-vashisht.png.asset.json";
-import ariv from "@/assets/member-ariv.png.asset.json";
-import sanjeev from "@/assets/member-sanjeev.png.asset.json";
-import srikar from "@/assets/member-srikar.png.asset.json";
-
+const armaan = { url: "/images/member-armaan.png" };
+const ekansh = { url: "/images/member-ekansh.png" };
+const sahanvi = { url: "/images/member-sahanvi.png" };
+const avni = { url: "/images/member-avni.png" };
+const harsehaj = { url: "/images/member-harsehaj.png" };
+const suhas = { url: "/images/member-suhas.png" };
+const sam = { url: "/images/member-sam.png" };
+const vashisht = { url: "/images/member-vashisht.png" };
+const ariv = { url: "/images/member-ariv.png" };
+const sanjeev = { url: "/images/member-sanjeev.png" };
+const srikar = { url: "/images/member-srikar.png" };
 export type Member = {
   name: string;
   role: string;

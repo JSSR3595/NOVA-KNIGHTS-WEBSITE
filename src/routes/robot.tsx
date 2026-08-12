@@ -2,17 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { Reveal } from "@/components/site/Reveal";
 import { MobyDiagram } from "@/components/site/MobyDiagram";
-import d1 from "@/assets/design-1-whiteboard.jpg.asset.json";
-import d2 from "@/assets/design-2-research-cad.jpg.asset.json";
-import d3 from "@/assets/design-3-prototype.jpg.asset.json";
-import d4 from "@/assets/design-4-improve.jpg.asset.json";
-import intake1 from "@/assets/intake-1.jpg.asset.json";
-import intake2 from "@/assets/intake-2.jpg.asset.json";
-import intake3 from "@/assets/intake-3.jpg.asset.json";
-import shooter1 from "@/assets/shooter-1.jpg.asset.json";
-import shooter2 from "@/assets/shooter-2.jpg.asset.json";
-import shooter3 from "@/assets/shooter-3.jpg.asset.json";
-
+const d1 = { url: "/images/design-1-whiteboard.jpg" };
+const d2 = { url: "/images/design-2-research-cad.jpg" };
+const d3 = { url: "/images/design-3-prototype.jpg" };
+const d4 = { url: "/images/design-4-improve.jpg" };
+const intake1 = { url: "/images/intake-1.jpg" };
+const intake2 = { url: "/images/intake-2.jpg" };
+const intake3 = { url: "/images/intake-3.jpg" };
+const shooter1 = { url: "/images/shooter-1.jpg" };
+const shooter2 = { url: "/images/shooter-2.jpg" };
+const shooter3 = { url: "/images/shooter-3.jpg" };
 const title = "Design & Build — Nova Knights FTC #32326";
 const description =
   "How Nova Knights designed and built MOBY: our engineering design process, plus the intake and shooter build iterations that took us to 90% shooting accuracy.";

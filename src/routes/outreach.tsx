@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
-import fll1 from "@/assets/outreach-fll-1.jpg.asset.json";
-import fll2 from "@/assets/outreach-fll-2.jpg.asset.json";
-import fll3 from "@/assets/outreach-fll-3.jpg.asset.json";
-
+const fll1 = { url: "/images/outreach-fll-1.jpg" };
+const fll2 = { url: "/images/outreach-fll-2.jpg" };
+const fll3 = { url: "/images/outreach-fll-3.jpg" };
 const title = "Outreach — Nova Knights FTC #32326";
 const description =
   "Nova Knights outreach: inspiring younger FLL students, connecting with the FTC community, and applying shared learning to improve our robot and team.";

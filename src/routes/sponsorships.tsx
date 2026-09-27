@@ -63,7 +63,7 @@ function SponsorshipsPage() {
             className="flex min-h-36 min-w-56 items-center justify-center rounded-2xl border border-white/10 bg-white p-6 shadow-card transition-transform hover:-translate-y-1"
           >
             <img
-              src="https://www.genehaasfoundation.org/wp-content/uploads/2023/08/Gene-Haas-Foundation-Logo.png"
+              src="/images/gene-haas-foundation.png"
               alt="Gene Haas Foundation logo"
               className="max-h-24 w-auto max-w-full object-contain"
             />

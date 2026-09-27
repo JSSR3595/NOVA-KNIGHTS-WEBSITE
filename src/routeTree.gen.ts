@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as OutreachRouteImport } from './routes/outreach'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as RobotRouteImport } from './routes/robot'
+import { Route as SponsorshipsRouteImport } from './routes/sponsorships'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const RobotRoute = RobotRouteImport.update({
   path: '/robot',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SponsorshipsRoute = SponsorshipsRouteImport.update({
+  id: '/sponsorships',
+  path: '/sponsorships',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
   '/robot': typeof RobotRoute
+  '/sponsorships': typeof SponsorshipsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
   '/robot': typeof RobotRoute
+  '/sponsorships': typeof SponsorshipsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,22 @@ export interface FileRoutesById {
   '/outreach': typeof OutreachRoute
   '/programs': typeof ProgramsRoute
   '/robot': typeof RobotRoute
+  '/sponsorships': typeof SponsorshipsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/outreach' | '/programs' | '/robot'
+  fullPaths:
+    '/' | '/about' | '/outreach' | '/programs' | '/robot' | '/sponsorships'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/outreach' | '/programs' | '/robot'
-  id: '__root__' | '/' | '/about' | '/outreach' | '/programs' | '/robot'
+  to: '/' | '/about' | '/outreach' | '/programs' | '/robot' | '/sponsorships'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/outreach'
+    | '/programs'
+    | '/robot'
+    | '/sponsorships'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +94,7 @@ export interface RootRouteChildren {
   OutreachRoute: typeof OutreachRoute
   ProgramsRoute: typeof ProgramsRoute
   RobotRoute: typeof RobotRoute
+  SponsorshipsRoute: typeof SponsorshipsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +134,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RobotRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sponsorships': {
+      id: '/sponsorships'
+      path: '/sponsorships'
+      fullPath: '/sponsorships'
+      preLoaderRoute: typeof SponsorshipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +150,7 @@ const rootRouteChildren: RootRouteChildren = {
   OutreachRoute: OutreachRoute,
   ProgramsRoute: ProgramsRoute,
   RobotRoute: RobotRoute,
+  SponsorshipsRoute: SponsorshipsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -9,6 +9,7 @@ const navLinks = [
   { to: "/robot", label: "Design & Build" },
   { to: "/outreach", label: "Outreach" },
   { to: "/programs", label: "Programs" },
+  { to: "/sponsorships", label: "Sponsorships" },
 ] as const;
 
 export function SiteFooter() {
